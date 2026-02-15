@@ -1,1 +1,105 @@
 /* You can add global styles to this file, and also import other style files */
+.slick-prev {
+  z-index: 1;
+  left: 12px;
+}
+
+.slick-next {
+  z-index: 1;
+  right: 30px;
+}
+.slick-prev:before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-image: url('assets/images/стрелка_1.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+  border: 1px solid #076bff;
+}
+.slick-next:before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-image: url('assets/images/стрелка_2.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+  border: 1px solid #076bff;
+}
+
+.ui-widget {
+  max-width: 856px;
+  margin: 0 auto;
+}
+.ui-accordion .ui-accordion-content {
+  border: 0;
+}
+.ui-state-active,
+.ui-state-default {
+  background: linear-gradient(360deg, #076bff 0%, #007bff 100%);
+  border-radius: 10px;
+  color: white;
+}
+.ui-accordion .ui-accordion-header {
+  margin-bottom: 10px;
+  padding: 1em;
+}
+
+.accordion .ui-accordion-header {
+  position: relative;
+}
+.accordion .ui-accordion-header-icon {
+  content: '';
+  position: absolute;
+  top: 19px;
+  right: 19px;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: url('assets/images/Vector_down.png') 50% 50% no-repeat;
+  color: white;
+}
+.accordion .ui-accordion-header-active .ui-accordion-header-icon {
+  background-image: url('assets/images/Vector_up.png');
+}
+.close {
+  display: none;
+}
+
+.modal-content {
+  display: none;
+  width: 900px;
+  height: 300px;
+  background-color: #d9d8d8;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+}
+.open {
+  display: block;
+}
+
+/* Slider */
+/* .slick-loading .slick-list {
+  background: #fff url('asseets/ajax-loader.gif') center center no-repeat;
+} */
+
+/* Icons */
+/* @font-face {
+  font-family: 'slick';
+  font-weight: normal;
+  font-style: normal;
+
+  src: url('asseets/fonts/slick.eot');
+  src:
+    url('asseets/fonts/slick.eot?#iefix') format('embedded-opentype'),
+    url('asseets/fonts/slick.woff') format('woff'),
+    url('asseets/fonts/slick.ttf') format('truetype'),
+    url('asseets/fonts/slick.svg#slick') format('svg');
+} */

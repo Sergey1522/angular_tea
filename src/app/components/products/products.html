@@ -1,0 +1,30 @@
+<section class="products">
+  <div class="products-title text-black text-center h1 mb-5">Наши чайные коллекции</div>
+  <div class="container-xl">
+    <div class="d-flex flex-wrap justify-content-between row row-cols-3 g-3 mb-5">
+      @for (product of products; track product.id) {
+        <div class="col-xl-4">
+          <div class="card">
+            <div class="card-header">
+              <img src="{{ product.image }}" class="card-img-top" alt="..." />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{ product.title }}</h5>
+              <p class="card-text">
+                {{ product.description | descriptionCrop }}
+              </p>
+            </div>
+            <div class="card-footer d-flex justify-content-between align-items-center">
+              <a
+                class="btn btn-primary hvr-grow-rotate d-inline"
+                [routerLink]="['/product', product.id]"
+                >Подробнее</a
+              >
+              <span class="d-inline">Цена: {{ product.price | rubleCurrency }}</span>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
