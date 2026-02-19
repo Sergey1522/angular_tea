@@ -1,14 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ProductsService } from '../../services/products-service';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Route, Router, RouterLink } from '@angular/router';
 import { ProductsType } from '../../types/products-type';
-import { DescriptionCropPipe } from '../../pipes/description-crop-pipe';
 import { RubleCurrencyPipe } from '../../pipes/ruble-currency-pipe';
-import { data } from 'jquery';
 
 @Component({
   selector: 'app-product',
-  imports: [DescriptionCropPipe, RubleCurrencyPipe, RouterLink],
+  imports: [RubleCurrencyPipe],
   templateUrl: './product.html',
   styleUrl: './product.css',
 })
@@ -43,5 +41,10 @@ export class Product implements OnInit {
         });
       }
     });
+  }
+
+  addToCard() {
+    this.productsService.product = this.product.title;
+    this.router.navigate(['/order']);
   }
 }

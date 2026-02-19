@@ -3,23 +3,23 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsType } from '../../types/products-type';
 import { DescriptionCropPipe } from '../../pipes/description-crop-pipe';
 import { RubleCurrencyPipe } from '../../pipes/ruble-currency-pipe';
-import { Router, RouterLink } from '@angular/router';
-import { Product } from '../product/product';
+import {  Router, RouterLink } from '@angular/router';
+
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [RouterLink, Product, DescriptionCropPipe, RubleCurrencyPipe],
+  imports: [RouterLink, DescriptionCropPipe, RubleCurrencyPipe],
   templateUrl: './products.html',
   styleUrl: './products.css',
 })
 export class Products implements OnInit {
+  products: ProductsType[] = [];
+
   constructor(
     private productsService: ProductsService,
     private router: Router,
   ) {}
-
-  products: ProductsType[] = [];
 
   ngOnInit(): void {
     this.productsService.getProducts().subscribe({
@@ -31,9 +31,5 @@ export class Products implements OnInit {
         this.router.navigate(['']);
       },
     });
-  }
-
-  cardProduct(): void {
-    this.router.navigate(['product']);
   }
 }

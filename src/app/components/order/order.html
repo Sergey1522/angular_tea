@@ -1,72 +1,137 @@
 <section class="order wow animate__animated animate__backInDown">
   <div class="order-title text-center h2 mb-5">Сделать заказ</div>
+  <div *ngIf="showSuccessMessage" class="success-message text-center py-5">
+    <div class="success-icon mb-4">
+      <i class="bi bi-check-circle-fill text-success" style="font-size: 5rem"></i>
+    </div>
+    <h3 class="text-success mb-3">Спасибо за заказ!</h3>
+    <p class="text-muted mb-4">Наш менеджер свяжется с вами в ближайшее время для подтверждения.</p>
+    <button class="btn btn-primary" (click)="createNewOrder()">Оформить новый заказ</button>
+  </div>
   <div class="container-xl mb-5">
-    <form class="form">
+    <form *ngIf="!showSuccessMessage" class="form" [formGroup]="orderForm" (ngSubmit)="onSubmit()">
       <div class="row justify-content-center">
         <div class="row justify-content-center mb-3">
           <div class="col-xl-6 col-lg-6 col-lg-6">
             <label for="text" class="form-label">Товар</label>
-            <input type="text" class="form-control" id="text" />
+            <input
+              type="text"
+              class="form-control"
+              id="text"
+              name="product"
+              formControlName="product"
+            />
           </div>
         </div>
         <div class="row justify-content-center mb-3">
           <div class="col-xl-6 col-lg-6 col-lg-6">
             <label for="text" class="form-label">Комментарий к заказу</label>
-            <input type="text" class="form-control" id="text" />
+            <textarea
+              class="form-control"
+              id="comment"
+              rows="3"
+              formControlName="comment"
+              placeholder="Ваши пожелания..."
+            ></textarea>
           </div>
         </div>
         <div class="col-xll-2 col-xl-2 col-lg-2 col-md-4 col-sm-12">
           <label for="name" class="form-label">Имя</label>
-          <input type="text" class="form-control" id="name" />
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            formControlName="name"
+            [class.is-invalid]="hasError('name', 'required') || hasError('name', 'minlength')"
+            placeholder="Введите имя"
+          />
+          <div class="invalid-feedback" *ngIf="hasError('name', 'required')">Имя обязательно</div>
+          <div class="invalid-feedback" *ngIf="hasError('name', 'minlength')">
+            Минимум 2 символа
+          </div>
         </div>
         <div class="col-xll-2 col-xl-2 col-lg-2 col-md-4 col-sm-12">
           <label for="surname" class="form-label">Фамилия</label>
-          <input type="text" class="form-control" id="surname" />
+          <input
+            type="text"
+            class="form-control"
+            id="surname"
+            name="lastName"
+            formControlName="lastName"
+            [class.is-invalid]="hasError('lastName', 'required')"
+            placeholder="Введите фамилию"
+          />
         </div>
         <div class="col-xll-2 col-xl-2 col-lg-2 col-md-4 col-sm-12">
           <label for="telephone" class="form-label">Телефон</label>
-          <input type="tel" class="form-control" id="telephone" />
+          <input
+            type="tel"
+            class="form-control"
+            id="telephone"
+            name="phone"
+            [imask]="phoneMask"
+            placeholder="+7 (___) ___-__-__"
+            formControlName="phone"
+            [class.is-invalid]="hasError('phone', 'required') || hasError('phone', 'pattern')"
+          />
+          <div class="invalid-feedback" *ngIf="hasError('phone', 'required')">
+            Телефон обязателен
+          </div>
+          <div class="invalid-feedback" *ngIf="hasError('phone', 'pattern')">
+            Введите номер в формате +7 (999) 999-99-99
+          </div>
         </div>
       </div>
       <div class="row justify-content-center">
         <div class="col-xll-3 col-xl-3 col-lg-3">
           <label for="country" class="form-label">Страна</label>
-          <input type="tel" class="form-control" id="country" />
+          <input
+            type="tel"
+            class="form-control"
+            id="country"
+            name="country"
+            formControlName="country"
+            [class.is-invalid]="hasError('country', 'required')"
+            placeholder="Страна"
+          />
         </div>
         <div class="col-xll-3 col-xl-3 col-lg-3">
-          <label for="Index" class="form-label">Индекс</label>
-          <input type="text" class="form-control" id="index" />
+          <label for="zip" class="form-label">Индекс</label>
+          <input
+            type="text"
+            class="form-control"
+            id="zip"
+            name="zip"
+            formControlName="zip"
+            [class.is-invalid]="hasError('zip', 'required') || hasError('index', 'pattern')"
+            placeholder="123456"
+            maxlength="6"
+          />
+          <div class="invalid-feedback" *ngIf="hasError('zip', 'pattern')">
+            Индекс должен содержать 6 цифр
+          </div>
         </div>
       </div>
       <div class="row justify-content-center mb-3">
         <div class="col-xl-6 col-lg-6 col-lg-6">
           <label for="address" class="form-label">Адрес</label>
-          <input type="text" class="form-control" id="address" />
+          <input
+            type="text"
+            class="form-control"
+            id="address"
+            name="address"
+            formControlName="address"
+            [class.is-invalid]="hasError('address', 'required')"
+            placeholder="Улица, дом, квартира"
+          />
         </div>
       </div>
       <div class="row text-start justify-content-center">
         <div class="col-lg-6">
-          <button id="btn" type="button" class="btn btn-primary mb-3 hvr-buzz">Отправить</button>
+          <button id="btn" type="submit" class="btn btn-primary mb-3">Отправить</button>
         </div>
       </div>
     </form>
-    <div class="row modal-fade">
-      <div class="modal-dialog col-xl-8">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body h2">
-            <p>Спасибо за заказ Мы свяжемся с вами в ближайшее время!!</p>
-          </div>
-          <div class="modal-footer"></div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>

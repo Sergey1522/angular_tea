@@ -10,7 +10,7 @@
       </p>
     </div>
     <div class="card-footer d-flex justify-content-between align-items-center">
-      <a class="btn btn-primary hvr-grow-rotate d-inline">Купить</a>
+      <a class="btn btn-primary hvr-grow-rotate d-inline" (click)="addToCard()">Купить</a>
       <span class="d-inline">Цена: {{ product.price | rubleCurrency }}</span>
     </div>
   </div>
