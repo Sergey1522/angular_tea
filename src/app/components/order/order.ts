@@ -64,7 +64,7 @@ export class Order implements OnInit {
   }
 
   onSubmit() {
-    if (this.orderForm.invalid) {
+    if (this.orderForm.valid) {
       const formValue = this.orderForm.getRawValue();
       const order: OrderType = {
         name: formValue.name,
@@ -89,7 +89,7 @@ export class Order implements OnInit {
         },
       });
     } else {
-      console.log('Форма не валидна');
+   alert('Заполните пожалуйста все поля!')
     }
   }
 
