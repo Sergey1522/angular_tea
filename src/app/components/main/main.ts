@@ -1,10 +1,10 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-main',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './main.html',
   styleUrl: './main.css',
 })
