@@ -10,7 +10,7 @@ import {
 } from '@angular/forms';
 import { ProductsService } from '../../services/products-service';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -27,6 +27,7 @@ export class Order implements OnInit {
     private productsServise: ProductsService,
     private fb: FormBuilder,
     private router: Router,
+    private activedRoute: ActivatedRoute,
   ) {
     this.orderForm = this.fb.group({
       product: [{ value: '', disabled: 'true' }],
@@ -50,12 +51,13 @@ export class Order implements OnInit {
   };
 
   ngOnInit(): void {
-    if (this.productsServise.product) {
-      console.log(this.productsServise.product);
-      this.orderForm.patchValue({
-        product: this.productsServise.product,
-      });
-    }
+    this.activedRoute.queryParams.subscribe((params) => {
+      if (params['product']) {
+        this.orderForm.patchValue({
+          product: params['product'],
+        });
+      }
+    });
   }
 
   hasError(controlName: string, errorName: string): boolean {
@@ -89,7 +91,7 @@ export class Order implements OnInit {
         },
       });
     } else {
-   alert('Заполните пожалуйста все поля!')
+      alert('Заполните пожалуйста все поля!');
     }
   }
 

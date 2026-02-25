@@ -1,3 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
 /* You can add global styles to this file, and also import other style files */
 .slick-prev {
   z-index: 1;
@@ -84,22 +95,3 @@
 .open {
   display: block;
 }
-
-/* Slider */
-/* .slick-loading .slick-list {
-  background: #fff url('asseets/ajax-loader.gif') center center no-repeat;
-} */
-
-/* Icons */
-/* @font-face {
-  font-family: 'slick';
-  font-weight: normal;
-  font-style: normal;
-
-  src: url('asseets/fonts/slick.eot');
-  src:
-    url('asseets/fonts/slick.eot?#iefix') format('embedded-opentype'),
-    url('asseets/fonts/slick.woff') format('woff'),
-    url('asseets/fonts/slick.ttf') format('truetype'),
-    url('asseets/fonts/slick.svg#slick') format('svg');
-} */
