@@ -1,8 +1,8 @@
-import { ProductsService } from '../../services/products-service';
+import { ProductsService } from '../services/products-service';
 import { Component, effect, OnInit, signal } from '@angular/core';
-import { ProductsType } from '../../types/products-type';
-import { DescriptionCropPipe } from '../../pipes/description-crop-pipe';
-import { RubleCurrencyPipe } from '../../pipes/ruble-currency-pipe';
+import { ProductsType } from '../../../types/products-type';
+import { DescriptionCropPipe } from '../../../shared/pipes/description-crop-pipe';
+import { RubleCurrencyPipe } from '../../../shared/pipes/ruble-currency-pipe';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 @Component({

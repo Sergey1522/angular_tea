@@ -1,8 +1,8 @@
 import { Component, effect, Input, OnInit, signal } from '@angular/core';
-import { ProductsService } from '../../services/products-service';
+import { ProductsService } from '../services/products-service';
 import { ActivatedRoute, Route, Router, RouterLink } from '@angular/router';
-import { ProductsType } from '../../types/products-type';
-import { RubleCurrencyPipe } from '../../pipes/ruble-currency-pipe';
+import { ProductsType } from '../../../types/products-type';
+import { RubleCurrencyPipe } from '../../../shared/pipes/ruble-currency-pipe';
 
 @Component({
   selector: 'app-product',

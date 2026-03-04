@@ -39,8 +39,6 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/jquery-ui/dist/themes/base/jquery-ui.min.css",
-              "node_modules/slick-carousel/slick/slick.css",
-              "node_modules/slick-carousel/slick/slick-theme.css",
               "node_modules/animate.css/animate.min.css",
               "node_modules/hover.css/css/hover-min.css",
               "node_modules/magnific-popup/dist/magnific-popup.css",
@@ -49,8 +47,6 @@
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/jquery/dist/jquery.min.js",
-
-              "node_modules/slick-carousel/slick/slick.min.js",
               "node_modules/jquery-ui/dist/jquery-ui.min.js",
               "node_modules/@popperjs/core/dist/umd/popper.min.js",
               "node_modules/wowjs/dist/wow.min.js",
