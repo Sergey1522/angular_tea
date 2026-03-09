@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { MainRoutingModule } from './main-routing-module';
 import { Main } from './main';
+import { SharedModule } from '../../shared/shared-module';
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule, MainRoutingModule],
-  exports: [Main]
+  imports: [CommonModule, MainRoutingModule, Main, SharedModule],
+  exports: [CommonModule, MainRoutingModule, Main, SharedModule],
 })
 export class MainModule {}

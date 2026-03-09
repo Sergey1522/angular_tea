@@ -15,9 +15,7 @@
               </p>
             </div>
             <div class="card-footer d-flex justify-content-between align-items-center">
-              <a
-                class="btn btn-primary hvr-grow-rotate d-inline"
-                [routerLink]="['/product', product.id]"
+              <a class="btn btn-primary hvr-grow-rotate d-inline" (click)="goToProduct(product.id)"
                 >Подробнее</a
               >
               <span class="d-inline">Цена: {{ product.price | rubleCurrency }}</span>
