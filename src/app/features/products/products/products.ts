@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [RouterLink, DescriptionCropPipe, RubleCurrencyPipe, CommonModule],
+  imports: [DescriptionCropPipe, RubleCurrencyPipe, CommonModule],
   templateUrl: './products.html',
   styleUrl: './products.css',
 })
